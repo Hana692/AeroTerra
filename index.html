@@ -1,3 +1,4 @@
+ممكن تشرحلي الكود و كل حاجه بتتعمل فيه خطوة بخطوه
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -625,8 +626,8 @@
                             <h3><i class="fas fa-database"></i> Data Sources</h3>
                             <div>
                                 <div>🌍 NASA MODIS</div>
-                                <div>🛰 Sentinel-5P</div>
-                                <div>☁ NASA GPM</div>
+                                <div>🛰️ Sentinel-5P</div>
+                                <div>☁️ NASA GPM</div>
                             </div>
                         </div>
                     </div>
@@ -638,7 +639,7 @@
                         
                         <div class="metrics">
                             <div class="metric-card">
-                                <div class="metric-icon">🌡</div>
+                                <div class="metric-icon">🌡️</div>
                                 <div class="metric-value" id="temp-value">30°C</div>
                                 <div class="metric-label">Temperature</div>
                             </div>
@@ -653,7 +654,7 @@
                                 <div class="metric-label">Vegetation</div>
                             </div>
                             <div class="metric-card">
-                                <div class="metric-icon">🌧</div>
+                                <div class="metric-icon">🌧️</div>
                                 <div class="metric-value" id="precip-value">0.05</div>
                                 <div class="metric-label">Precipitation</div>
                             </div>
@@ -695,7 +696,7 @@
                             <p>NO2 levels predicted to increase by 15% in next 48 hours</p>
                         </div>
                         <p><strong>📈 Temperature Forecast:</strong> +2.3°C in next 7 days</p>
-                        <p><strong>🌧 Precipitation:</strong> Seasonal patterns detected</p>
+                        <p><strong>🌧️ Precipitation:</strong> Seasonal patterns detected</p>
                     </div>
                     
                     <div class="analytics-card">
@@ -823,7 +824,7 @@
                     <h3>🌍 Our Mission</h3>
                     <p>AeroTerra helps urban planners develop smart strategies for city growth that maintain both the wellbeing of people and the environment.</p>
                     
-                    <h3 style="margin-top: 1.5rem;">🛰 Data Sources</h3>
+                    <h3 style="margin-top: 1.5rem;">🛰️ Data Sources</h3>
                     <p>Powered by NASA Earthdata, Copernicus Sentinel, and Google Earth Engine</p>
                     
                     <h3 style="margin-top: 1.5rem;">👥 Open Source</h3>
@@ -1099,7 +1100,7 @@
 
         // Initialize Leaflet map
         function initMap() {
-            console.log('🗺 Initializing map...');
+            console.log('🗺️ Initializing map...');
             const map = L.map('map', {
                 zoomControl: false
             }).setView([30.0444, 31.2357], 3);
@@ -1121,7 +1122,7 @@
             
             cities.forEach(city => {
                 L.marker(city.coords).addTo(map)
-                    .bindPopup(<b>${city.name}</b><br>Click for environmental data);
+                    .bindPopup(`<b>${city.name}</b><br>Click for environmental data`);
             });
             
             console.log('✅ Map initialized');
@@ -1141,7 +1142,7 @@
                         label: '°C',
                         data: [25, 27, 30, 32, 35, 38],
                         borderColor: '#ff6b6b',
-                        backgroundColor: 'rgba(255, 107, 107, 0.1)'
+                        backgroundColor: 'rgba(255, 107, 107, 0.1)',
                         borderWidth: 2,
                         tension: 0.4,
                         fill: true
@@ -1269,7 +1270,7 @@
                     document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
                     document.getElementById(this.getAttribute('data-page') + '-page').classList.add('active');
                     
-                    showNotification(📊 ${this.textContent} Page);
+                    showNotification(`📊 ${this.textContent} Page`);
                 });
             });
             
@@ -1285,7 +1286,7 @@
                 document.getElementById('precip-value').textContent = data.precip;
                 document.getElementById('flood-value').textContent = data.flood;
                 
-                showNotification(📍 Viewing ${this.options[this.selectedIndex].text});
+                showNotification(`📍 Viewing ${this.options[this.selectedIndex].text}`);
             });
             
             // Recommendation cards open modal
@@ -1384,7 +1385,7 @@
                 
                 <h4>Expected Impacts:</h4>
                 <ul style="margin: 0.8rem 0; padding-left: 1.5rem;">
-                    ${rec.impacts.map(impact => <li>${impact}</li>).join('')}
+                    ${rec.impacts.map(impact => `<li>${impact}</li>`).join('')}
                 </ul>
                 
                 <h4>Implementation Plan:</h4>
@@ -1392,7 +1393,7 @@
                 
                 <h4>Data Sources:</h4>
                 <ul style="margin: 0.8rem 0; padding-left: 1.5rem;">
-                    ${rec.dataSources.map(source => <li>${source}</li>).join('')}
+                    ${rec.dataSources.map(source => `<li>${source}</li>`).join('')}
                 </ul>
                 
                 <div style="display: flex; gap: 0.5rem; margin-top: 1.5rem;">
@@ -1434,20 +1435,20 @@
             results.innerHTML = `
                 <div style="background: rgba(6, 214, 160, 0.2); padding: 1rem; border-radius: 6px; margin-top: 1rem;">
                     <h4>Simulation Results: ${scenario}% Green Space Increase</h4>
-                    <p>🌡 Temperature Reduction: -${(1.2 * percent/10).toFixed(1)}°C</p>
+                    <p>🌡️ Temperature Reduction: -${(1.2 * percent/10).toFixed(1)}°C</p>
                     <p>💨 Pollution Reduction: -${15 * percent/10}%</p>
                     <p>💧 Water Absorption: +${20 * percent/10}%</p>
                     <p>🌿 Biodiversity: +${25 * percent/10}%</p>
                 </div>
             `;
             
-            showNotification(🌳 ${scenario}% Green Space Simulation Complete);
+            showNotification(`🌳 ${scenario}% Green Space Simulation Complete`);
         }
 
         // Notification system
         function showNotification(message, type = 'success') {
             const notification = document.createElement('div');
-            notification.className = notification ${type === 'error' ? 'error' : ''};
+            notification.className = `notification ${type === 'error' ? 'error' : ''}`;
             notification.textContent = message;
             document.body.appendChild(notification);
             
